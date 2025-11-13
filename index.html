@@ -4,29 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loader</title>
+    <!-- Link do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f9fa; /* cor de fundo suave */
+        }
+
+        a.btn-lg {
+            padding: 1.5rem 3rem;
+            font-size: 1.8rem;
+            border-radius: 1rem;
+        }
+    </style>
 </head>
 <body>
-    <a href="loadging.html">clique aqui</a>
+    <a href="loadging.html" class="btn btn-primary btn-lg">Clique Aqui</a>
+
     <script>
-        const splashScreen = document.getElementById('splash-screen');
-            const tempoDeCarregamento = 2000; // 2000 milissegundos = 2 segundos
+        const tempoDeCarregamento = 2000; // 2 segundos
 
-            // A função será executada após o tempo definido
-            setTimeout(() => {
-                // 1. Opcional: Adiciona a classe 'hidden' para iniciar a transição
-                splashScreen.classList.add('hidden');
-
-                // 2. Espera a transição do CSS terminar (0.5s) e esconde o elemento
-                setTimeout(() => {
-                    splashScreen.style.display = 'none';
-
-                    // 4. Se fosse um *redirecionamento real* para outra página:
-                    window.location.href = 'loadging.html';
-
-
-                }, 500); // 500ms é o tempo da transição 'opacity' no CSS
-
-            }, tempoDeCarregamento);
+        setTimeout(() => {
+            window.location.href = 'loadging.html';
+        }, tempoDeCarregamento);
     </script>
 </body>
 </html>
