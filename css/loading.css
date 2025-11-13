@@ -1,0 +1,41 @@
+/* --- ESTILOS GERAIS PARA A TELA DE CARREGAMENTO --- */
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #44495e 0%, #6d96e0 50%, #201e22 100%);;
+    /* Cor de fundo da tela de carregamento */
+    font-family: sans-serif;
+    flex-direction: column;
+}
+
+/* --- SEU CÓDIGO CSS DO LOADER --- */
+
+/* HTML: <div class="loader"></div> */
+.loader {
+    height: 30px;
+    aspect-ratio: 6;
+    --c: #0000 64%, #ffffff 66% 98%, #ffffff00 101%;
+    background:
+        radial-gradient(35% 146% at 50% 159%, var(--c)) 0 0,
+        radial-gradient(35% 146% at 50% -59%, var(--c)) 25% 100%;
+    background-size: calc(100%/3) 50%;
+    background-repeat: repeat-x;
+    clip-path: inset(0 100% 0 0);
+    animation: l2 1s infinite linear;
+}
+
+.loader-text{
+    text-align: center;
+    color: #fff;
+}
+
+@keyframes l2 {
+
+    90%,
+    to {
+        clip-path: inset(0)
+    }
+}

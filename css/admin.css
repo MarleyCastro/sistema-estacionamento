@@ -1,0 +1,76 @@
+body {
+     background: linear-gradient(135deg, #44495e 0%, #6d96e0 50%, #201e22 100%);
+    min-height: 100vh;
+}
+
+.admin-container {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.stat-card {
+     background: linear-gradient(135deg, #44495e 0%, #6d96e0 50%, #201e22 100%);
+    color: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.stat-card h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.vaga-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.vaga-box {
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.vaga-box.ocupada {
+    background-color: #f44336;
+    color: white;
+    border-color: #d32f2f;
+}
+
+.vaga-box.livre {
+    background-color: #4caf50;
+    color: white;
+    border-color: #388e3c;
+}
+
+.vaga-box:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modelo-item {
+    background: #f5f5f5;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+}
+
+.foto-admin {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}

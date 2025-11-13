@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin - Sistema de Estacionamento</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">👨‍💼 Painel Administrativo</a>
+            <button class="btn btn-outline-light btn-sm"  onclick="logout()">Sair</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="admin-container">
+            <h1 class="text-center mb-4">📊 Dashboard Administrativo</h1>
+
+            <!-- Estatísticas Gerais -->
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <p class="mb-0">Total de Vagas</p>
+                        <h2 id="adminTotalVagas">0</h2>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <p class="mb-0">Vagas Ocupadas</p>
+                        <h2 id="adminVagasOcupadas">0</h2>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <p class="mb-0">Vagas Livres</p>
+                        <h2 id="adminVagasLivres">0</h2>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <p class="mb-0">Taxa de Ocupação</p>
+                        <h2 id="adminPercentual">0%</h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mapa de Vagas -->
+            <div class="card mt-4">
+                <div class="card-header bg-primary text-white">
+                    <h4>🅿️ Mapa de Vagas</h4>
+                </div>
+                <div class="card-body">
+                    <div id="mapaVagas" class="vaga-grid"></div>
+                </div>
+            </div>
+
+            <!-- Lista de Veículos por Modelo -->
+            <div class="card mt-4">
+                <div class="card-header bg-success text-white">
+                    <h4>🚗 Veículos por Modelo</h4>
+                </div>
+                <div class="card-body">
+                    <div id="listaModelos"></div>
+                </div>
+            </div>
+
+            <!-- Tabela Detalhada -->
+            <div class="card mt-4">
+                <div class="card-header bg-secondary text-white">
+                    <h4>📋 Detalhamento Completo</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Foto</th>
+                                    <th>Vaga</th>
+                                    <th>Placa</th>
+                                    <th>Modelo</th>
+                                    <th>Entrada</th>
+                                    <th>Horário</th>
+                                    <th>Usuário</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabelaVeiculos"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Detalhes -->
+    <div class="modal fade" id="modalDetalhes" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Detalhes da Vaga <span id="vagaSelecionada"></span></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="detalhesVaga">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script/admin.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sistema de Estacionamento</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/home.css">
+
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">🚗 Sistema de Estacionamento</a>
+        <div>
+          <span class="navbar-text me-3" id="nomeUsuario"></span>
+          <button class="btn btn-outline-light btn-sm" onclick="logout()">Sair</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container mt-4">
+    <!-- Estatísticas -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="estatisticas">
+          <h3>📊 Estatísticas do Estacionamento</h3>
+          <div class="row mt-3">
+            <div class="col-md-3">
+              <h4 id="totalVagas">0</h4>
+              <small>Total de Vagas</small>
+            </div>
+            <div class="col-md-3">
+              <h4 id="vagasOcupadas">0</h4>
+              <small>Vagas Ocupadas</small>
+            </div>
+            <div class="col-md-3">
+              <h4 id="vagasLivres">0</h4>
+              <small>Vagas Livres</small>
+            </div>
+            <div class="col-md-3">
+              <h4 id="percentualOcupacao">0%</h4>
+              <small>Taxa de Ocupação</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cadastro de Veículo -->
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            <h4>🚙 Cadastrar Novo Veículo</h4>
+          </div>
+          <div class="card-body">
+            <form id="formCadastroVeiculo">
+              <div class="row">
+                <div class="col-md-3">
+                  <label class="form-label">Foto do Veículo *</label>
+                  <input type="file" id="fotoVeiculo" class="form-control" accept="image/*" required>
+                  <img id="previewFoto" class="foto-carro mt-2" style="display:none;">
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label">Modelo *</label>
+                  <input type="text" id="modeloVeiculo" class="form-control" placeholder="Ex: Honda Civic" required>
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label">Placa *</label>
+                  <input type="text" id="placaVeiculo" class="form-control" placeholder="ABC-1234" maxlength="8"
+                    required>
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label">Horário de Entrada</label>
+                  <input type="time" id="horarioEntrada" class="form-control" required>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-md-12">
+                  <button type="submit" class="btn btn-success">✅ Cadastrar Veículo</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lista de Veículos -->
+    <div class="row mt-4">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header bg-secondary text-white">
+            <h4>🅿️ Veículos Estacionados</h4>
+          </div>
+          <div class="card-body">
+            <div id="listaVeiculos"></div>
+            <div id="mensagemVazio" class="text-center text-muted" style="display:none;">
+              <p>Nenhum veículo estacionado no momento.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Confirmação -->
+  <div class="modal fade" id="modalConfirmacao" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title">✅ Veículo Cadastrado!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>Vaga atribuída:</strong> <span id="vagaAtribuida" class="fs-3 text-primary"></span></p>
+          <p>O veículo foi cadastrado com sucesso!</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script/estacionamento.js"></script>
+</body>
+
+</html>
