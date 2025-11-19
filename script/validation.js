@@ -237,7 +237,9 @@ document.getElementById('formAberturaConta').addEventListener('submit', function
         }, 6000);
 
     } else {
+        window.location.href = "loadging.html";
         alert('Por favor, corrija os erros no formulário antes de continuar.');
+        return false;
     }
 });
 
@@ -285,6 +287,17 @@ document.getElementById('formAberturaConta').addEventListener('submit', function
         formularioValido = false;
     }
 
+
+    const Admin = ['admin@estacionamento.com', 'gerente@estacionamento.com'];
+
+
+    //se o email for admin entrar na página admin
+    if(Admin.includes(email)) {
+        window.location.href = "admin.html";
+    } else {
+        window.location.href = "Home.html";
+    }
+
     if (formularioValido) {
         document.getElementById('alertaSucesso').classList.add('mostrar');
 
@@ -292,12 +305,14 @@ document.getElementById('formAberturaConta').addEventListener('submit', function
         const usuarioLogado = {
             nome: nome,
             email: email, // Usado como identificador para login/sessão
-            // Inclua outros dados necessários no sistema, como CPF e telefone
+            // Inclua outros dados necessários no sistema, como CPF e telefonejk
         };
         // Salva o objeto do usuário no localStorage para simular o login/sessão
-        localStorage.setItem('usuarioLogado', JSON.stringify(usuarioLogado));
-        // ******* FIM DA CORREÇÃO DO BUG DE LOGIN *******
+        localStorage.setItem('usuarioLogado', JSON.stringify(usuarioLogado),  (e)=> {
 
+        });
+        // ******* FIM DA CORREÇÃO DO BUG DE LOGIN *******
+        
         console.log('Dados do formulário:');
         console.log('Nome:', nome);
         console.log('CPF:', cpf);
